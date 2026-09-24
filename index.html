@@ -13,7 +13,7 @@
         "@context": "https://schema.org",
         "@type": "AutomotiveBusiness",
         "name": "dpfofflodz.pl",
-        "description": "Diagnostyka komputerowa i rozwiązania programowe dla samochodów w Łodzi.",
+        "description": "Kompleksowe modyfikacje i diagnostyka samochodów w Łodzi.",
         "areaServed": "Łódź",
         "telephone": "+48 883 125 723",
         "email": "regeneracjalodz@wp.pl",
@@ -85,9 +85,6 @@
       .button-primary:hover { background: #ff6258; }
       .button-secondary { border-color: rgba(104,216,255,.45); color: var(--text); background: rgba(104,216,255,.06); }
       .button-secondary:hover { background: rgba(104,216,255,.13); }
-      .hero-meta { display: flex; flex-wrap: wrap; gap: 22px; color: var(--muted); font-size: 13px; }
-      .hero-meta span { display: inline-flex; align-items: center; gap: 8px; }
-      .hero-meta i { width: 7px; height: 7px; border-radius: 50%; background: var(--orange); box-shadow: 0 0 0 4px rgba(255,157,67,.11); }
       .hero-card { position: relative; min-height: 330px; padding: 24px; border: 1px solid var(--line); border-top: 3px solid var(--cyan); background: var(--surface); overflow: hidden; }
       .hero-card::before, .hero-card::after { display: none; }
       .terminal { position: relative; z-index: 1; font-family: "SFMono-Regular", Consolas, monospace; font-size: 12px; color: var(--muted); }
@@ -141,7 +138,7 @@
       .faq summary { cursor: pointer; list-style: none; display: flex; align-items: center; justify-content: space-between; gap: 22px; padding: 21px 0; font-weight: 750; }
       .faq summary::-webkit-details-marker { display: none; }
       .faq summary::after { content: "+"; color: var(--cyan); font-size: 24px; font-weight: 300; }.faq details[open] summary::after { content: "−"; color: var(--red); }
-      .faq details p { max-width: 680px; padding: 0 40px 22px 0; margin: 0; color: var(--muted); }
+      .faq details p { max-width: none; padding: 0 40px 22px 0; margin: 0; color: var(--muted); }
 
       .contact { position: relative; overflow: hidden; border: 1px solid rgba(104,216,255,.27); background: var(--surface); padding: 38px; }
       .contact::after { display: none; }
@@ -158,7 +155,7 @@
         .container { width: min(var(--max), calc(100% - 28px)); }
         .topbar-inner { justify-content: center; }.topbar-inner span:last-child { display: none; }
         .nav { min-height: 66px; }.nav-links { display: none; }.nav-cta { padding: 9px 10px; font-size: 12px; }
-        .hero { padding: 60px 0 48px; }.hero-copy { font-size: 16px; }.hero-actions { display: grid; }.button { width: 100%; }.hero-meta { gap: 12px; flex-direction: column; }
+        .hero { padding: 60px 0 48px; }.hero-copy { font-size: 16px; }.hero-actions { display: grid; }.button { width: 100%; }
         .hero-card { min-height: 330px; padding: 18px; }.readout { margin-top: 38px; }.readout h2 { font-size: 42px; }
         .section { padding: 64px 0; }.services { grid-template-columns: 1fr; }.service, .service summary { min-height: 180px; }.service summary { padding: 18px; }
         .dark-panel, .contact { padding: 24px 20px; }.step { grid-template-columns: 46px 1fr; gap: 12px; }.step h3 { font-size: 18px; }
@@ -196,8 +193,6 @@
       .readout-line { background: linear-gradient(90deg, var(--cyan), transparent); }
       .readout-cell { border-color: var(--line); background: #ffffff; }
       .readout-cell b { color: var(--text); }
-      .hero-meta { color: var(--muted); }
-      .hero-meta i { background: var(--cyan); box-shadow: 0 0 0 4px rgba(23,107,138,.12); }
       .section-kicker { color: var(--cyan); }
       .section-intro, .service p, .service-expanded, .dark-panel p, .step p, .contact p, .faq details p { color: var(--muted); }
       .services { gap: 18px; }
@@ -271,7 +266,7 @@
       .dark-panel { border: 0; border-radius: 22px; box-shadow: 0 10px 28px rgba(30,58,72,.06); padding: 32px; }
       .step { padding: 26px 0; }
       .step-no { font-size: 12px; letter-spacing: .04em; }
-      .faq { max-width: 860px; background: rgba(255,255,255,.64); border: 0; border-radius: 18px; padding: 0 24px; box-shadow: 0 10px 28px rgba(30,58,72,.06); }
+      .faq { width: 100%; max-width: none; margin: 0; background: rgba(255,255,255,.64); border: 0; border-radius: 18px; padding: 0 24px; box-shadow: 0 10px 28px rgba(30,58,72,.06); }
       .faq details:last-child { border-bottom: 0; }
       .contact { border: 0; border-radius: 24px; padding: 46px; box-shadow: 0 22px 55px rgba(24,62,78,.16); }
       footer { margin-top: 0; }
@@ -320,29 +315,27 @@
 
       /* Hero carousel z realistycznymi zdjęciami komponentów. */
       .hero { padding-top: 62px; padding-bottom: 48px; }
-      .hero-carousel { position: relative; }
+      .hero-carousel { position: relative; overflow: hidden; padding: clamp(24px, 4vw, 44px) clamp(20px, 4vw, 48px) 24px; border: 1px solid #d7e3e8; border-radius: 30px; background: rgba(255,255,255,.78); box-shadow: inset 0 0 0 1px rgba(255,255,255,.65); }
       .hero-viewport { overflow: hidden; }
       .hero-track { display: flex; align-items: stretch; transition: transform .65s cubic-bezier(.22,.8,.24,1); will-change: transform; }
       .hero-slide { flex: 0 0 100%; min-width: 0; display: grid; grid-template-columns: minmax(0, 1fr) minmax(350px, .92fr); gap: clamp(38px, 6vw, 76px); align-items: center; padding: 8px 2px 16px; }
       .hero-slide-copy { min-width: 0; }
       .hero-slide-copy h1 { max-width: 640px; }
       .hero-slide-copy .hero-copy { max-width: 570px; }
-      .hero-media { position: relative; min-width: 0; aspect-ratio: 4 / 3; overflow: hidden; border-radius: 26px; background: #102733; box-shadow: 0 24px 58px rgba(24,62,78,.18); }
+      .hero-media { position: relative; min-width: 0; aspect-ratio: 4 / 3; overflow: hidden; border: 1px solid rgba(23,107,138,.18); border-radius: 22px; background: #102733; }
       .hero-media::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(135deg, rgba(13,44,58,.04), rgba(13,44,58,.24)); mix-blend-mode: multiply; }
       .hero-media img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
-      .hero-media-badge { position: absolute; z-index: 1; left: 18px; bottom: 18px; display: inline-flex; align-items: center; min-height: 32px; padding: 0 12px; border: 1px solid rgba(255,255,255,.25); border-radius: 999px; background: rgba(10,31,42,.72); color: #ffffff; font-family: "SFMono-Regular", Consolas, monospace; font-size: 11px; letter-spacing: .12em; backdrop-filter: blur(10px); }
-      .hero-carousel-footer { display: flex; align-items: center; justify-content: space-between; gap: 24px; margin-top: 6px; }
+      .hero-carousel-footer { display: flex; align-items: center; justify-content: center; gap: 18px; margin-top: 22px; }
       .hero-dots { display: flex; align-items: center; gap: 8px; }
       .hero-dot { width: 8px; height: 8px; padding: 0; border: 0; border-radius: 50%; background: #c5d3d9; cursor: pointer; transition: width .25s ease, border-radius .25s ease, background .25s ease; }
       .hero-dot.is-active { width: 28px; border-radius: 999px; background: var(--cyan); }
       .hero-dot:focus-visible, .hero-arrow:focus-visible { outline: 3px solid rgba(23,107,138,.24); outline-offset: 4px; }
-      .hero-carousel-controls { display: flex; align-items: center; gap: 8px; }
-      .hero-counter { min-width: 72px; margin-right: 4px; color: var(--muted); font-family: "SFMono-Regular", Consolas, monospace; font-size: 12px; letter-spacing: .08em; }
-      .hero-counter strong { color: var(--text); }
-      .hero-arrow { display: grid; place-items: center; width: 38px; height: 38px; padding: 0; border: 1px solid #d4e0e5; border-radius: 50%; background: rgba(255,255,255,.75); color: var(--cyan); cursor: pointer; font-size: 17px; transition: background .2s ease, color .2s ease, transform .2s ease; }
+      .hero-arrow { display: grid; place-items: center; width: 42px; height: 42px; padding: 0; border: 1px solid #d4e0e5; border-radius: 50%; background: #ffffff; color: var(--cyan); cursor: pointer; font-size: 18px; transition: background .2s ease, color .2s ease, transform .2s ease; }
       .hero-arrow:hover { background: var(--cyan); color: #ffffff; transform: translateY(-2px); }
-      @media (max-width: 900px) { .hero-slide { grid-template-columns: 1fr; gap: 34px; } .hero-media { width: min(100%, 650px); aspect-ratio: 16 / 10; } }
-      @media (max-width: 660px) { .hero { padding-top: 44px; padding-bottom: 38px; } .hero-slide { gap: 28px; padding-bottom: 8px; } .hero-media { aspect-ratio: 4 / 3; border-radius: 18px; } .hero-carousel-footer { margin-top: 14px; } .hero-counter { min-width: 58px; } }
+      .hero-actions { justify-content: center; gap: 14px; margin-top: 34px; }
+      .hero-actions .button { min-height: 60px; padding: 16px 24px; font-size: 15px; }
+      @media (max-width: 900px) { .hero-slide { grid-template-columns: 1fr; gap: 34px; } .hero-media { width: min(100%, 650px); aspect-ratio: 16 / 10; margin: 0 auto; } }
+      @media (max-width: 660px) { .hero { padding-top: 44px; padding-bottom: 38px; } .hero-carousel { padding: 20px 16px 18px; border-radius: 22px; } .hero-slide { gap: 28px; padding-bottom: 8px; } .hero-media { aspect-ratio: 4 / 3; border-radius: 18px; } .hero-carousel-footer { margin-top: 14px; } .hero-actions { display: flex; flex-direction: column; align-items: stretch; } .hero-actions .button { width: 100%; } }
       @media (prefers-reduced-motion: reduce) { .hero-track, .hero-dot, .hero-arrow { transition: none; } }
     </style>
   </head>
@@ -366,12 +359,11 @@
                 <article class="hero-slide is-active" data-carousel-slide aria-roledescription="slide" aria-label="1 z 3">
                   <div class="hero-slide-copy">
                     <div class="eyebrow">DPF · diagnostyka</div>
-                    <h1>DPF bez zgadywania.<br /><em>Najpierw dane.</em></h1>
-                    <p class="hero-copy">Sprawdzamy objawy, parametry i kody błędów, żeby określić konkretny kierunek działania dla Twojego samochodu.</p>
+                    <h1>modyfikacja / usuwanie<br /><em>DPF</em></h1>
+                    <p class="hero-copy">Kompleksowe rozwiązania w zakresie modyfikacji i diagnostyki samochodów. Konkretny kierunek działania bez zgadywania i zbędnych obietnic.</p>
                     <div class="hero-actions"><a class="button button-primary" href="tel:+48883125723"><span aria-hidden="true">☎</span> Zadzwoń: 883 125 723</a><a class="button button-secondary" href="mailto:regeneracjalodz@wp.pl"><span aria-hidden="true">✉</span> Napisz e-mail</a></div>
-                    <div class="hero-meta"><span><i></i> Łódź i okolice</span><span><i></i> Pon.–Pt. 7:00–16:00</span><span><i></i> Wycena telefoniczna</span></div>
                   </div>
-                  <div class="hero-media"><img src="assets/hero-dpf.png" alt="Realistyczne zdjęcie filtra DPF w warsztacie" fetchpriority="high" /><span class="hero-media-badge">01 / DPF</span></div>
+                  <div class="hero-media"><img src="assets/hero-dpf.png" alt="Realistyczne zdjęcie filtra DPF w warsztacie" fetchpriority="high" /></div>
                 </article>
                 <article class="hero-slide" data-carousel-slide aria-roledescription="slide" aria-label="2 z 3">
                   <div class="hero-slide-copy">
@@ -379,9 +371,8 @@
                     <h1>Układ AdBlue.<br /><em>Spokojna diagnoza.</em></h1>
                     <p class="hero-copy">Analizujemy komunikaty, parametry i elementy układu, żeby odróżnić przyczynę problemu od samego ostrzeżenia.</p>
                     <div class="hero-actions"><a class="button button-primary" href="tel:+48883125723"><span aria-hidden="true">☎</span> Zadzwoń: 883 125 723</a><a class="button button-secondary" href="mailto:regeneracjalodz@wp.pl"><span aria-hidden="true">✉</span> Napisz e-mail</a></div>
-                    <div class="hero-meta"><span><i></i> Diagnostyka układu</span><span><i></i> Kontakt bez formularza</span><span><i></i> Łódź</span></div>
                   </div>
-                  <div class="hero-media"><img src="assets/hero-adblue.png" alt="Realistyczne zdjęcie elementu układu AdBlue SCR" loading="lazy" /><span class="hero-media-badge">02 / ADBLUE</span></div>
+                  <div class="hero-media"><img src="assets/hero-adblue.png" alt="Realistyczne zdjęcie elementu układu AdBlue SCR" loading="lazy" /></div>
                 </article>
                 <article class="hero-slide" data-carousel-slide aria-roledescription="slide" aria-label="3 z 3">
                   <div class="hero-slide-copy">
@@ -389,15 +380,15 @@
                     <h1>EGR i błędy.<br /><em>Znajdź przyczynę.</em></h1>
                     <p class="hero-copy">Odczytujemy dane ze sterowników i sprawdzamy objawy, aby dobrać rozwiązanie do konkretnego auta i jego przeznaczenia.</p>
                     <div class="hero-actions"><a class="button button-primary" href="tel:+48883125723"><span aria-hidden="true">☎</span> Zadzwoń: 883 125 723</a><a class="button button-secondary" href="mailto:regeneracjalodz@wp.pl"><span aria-hidden="true">✉</span> Napisz e-mail</a></div>
-                    <div class="hero-meta"><span><i></i> Odczyt danych</span><span><i></i> Indywidualna wycena</span><span><i></i> Łódź</span></div>
                   </div>
-                  <div class="hero-media"><img src="assets/hero-egr.png" alt="Realistyczne zdjęcie zaworu EGR w warsztacie" loading="lazy" /><span class="hero-media-badge">03 / EGR</span></div>
+                  <div class="hero-media"><img src="assets/hero-egr.png" alt="Realistyczne zdjęcie zaworu EGR w warsztacie" loading="lazy" /></div>
                 </article>
               </div>
             </div>
             <div class="hero-carousel-footer">
+              <button class="hero-arrow" type="button" aria-label="Poprzedni slajd" data-carousel-prev>←</button>
               <div class="hero-dots" role="tablist" aria-label="Wybierz slajd"><button class="hero-dot is-active" type="button" role="tab" aria-selected="true" aria-label="Pokaż slajd DPF" data-carousel-dot="0"></button><button class="hero-dot" type="button" role="tab" aria-selected="false" aria-label="Pokaż slajd AdBlue" data-carousel-dot="1"></button><button class="hero-dot" type="button" role="tab" aria-selected="false" aria-label="Pokaż slajd EGR" data-carousel-dot="2"></button></div>
-              <div class="hero-carousel-controls"><span class="hero-counter"><strong data-carousel-current>01</strong> / 03</span><button class="hero-arrow" type="button" aria-label="Poprzedni slajd" data-carousel-prev>←</button><button class="hero-arrow" type="button" aria-label="Następny slajd" data-carousel-next>→</button></div>
+              <button class="hero-arrow" type="button" aria-label="Następny slajd" data-carousel-next>→</button>
             </div>
           </div>
         </div>
@@ -408,19 +399,19 @@
           <div class="section-head"><div><div class="section-kicker">Zakres usług</div><h2 class="section-title">Wybierz temat.<br />Resztę omówimy telefonicznie.</h2></div><p class="section-intro">Kliknij kafelek, aby zobaczyć krótki opis. Zakres prac ustalamy po rozmowie i analizie konkretnego przypadku.</p></div>
           <div class="services" aria-label="Usługi">
             <article class="service-card">
-              <button class="service-trigger" type="button" aria-expanded="false" aria-controls="service-adblue"><span class="service-icon"><svg viewBox="0 0 24 24"><path d="M12 3v18M5 8h14M5 16h14M7 5h10M7 19h10"/><circle cx="12" cy="8" r="2"/><circle cx="12" cy="16" r="2"/></svg></span><span class="service-trigger-copy"><strong>AdBlue</strong><small>Analiza układu i komunikatów systemu.</small></span><span class="service-toggle" aria-hidden="true"></span></button>
+              <button class="service-trigger" type="button" aria-expanded="false" aria-controls="service-adblue"><span class="service-icon"><svg viewBox="0 0 24 24"><path d="M12 3v18M5 8h14M5 16h14M7 5h10M7 19h10"/><circle cx="12" cy="8" r="2"/><circle cx="12" cy="16" r="2"/></svg></span><span class="service-trigger-copy"><strong>AdBlue OFF</strong><small>To modyfikacja polegająca na programowej dezaktywacji tego systemu, bez konieczności ingerencji w mechanikę silnika.</small></span><span class="service-toggle" aria-hidden="true"></span></button>
               <div class="service-panel" id="service-adblue" aria-hidden="true"><p>Sprawdzamy komunikaty, parametry i możliwe źródła problemu. Po rozmowie ustalamy, czy potrzebna jest dalsza diagnostyka lub rozwiązanie programowe.</p></div>
             </article>
             <article class="service-card">
-              <button class="service-trigger" type="button" aria-expanded="false" aria-controls="service-dpf"><span class="service-icon"><svg viewBox="0 0 24 24"><path d="M4 18h16M6 18V8l3-3h6l3 3v10M9 12h6M9 15h6"/><path d="M8 3h8"/></svg></span><span class="service-trigger-copy"><strong>DPF OFF</strong><small>Weryfikacja objawów i parametrów filtra.</small></span><span class="service-toggle" aria-hidden="true"></span></button>
+              <button class="service-trigger" type="button" aria-expanded="false" aria-controls="service-dpf"><span class="service-icon"><svg viewBox="0 0 24 24"><path d="M4 18h16M6 18V8l3-3h6l3 3v10M9 12h6M9 15h6"/><path d="M8 3h8"/></svg></span><span class="service-trigger-copy"><strong>DPF OFF</strong><small>Usunięcie filtra DPF. Przeprogramowanie sterownika silnika, tak aby mógł poprawnie działać bez filtra cząstek stałych.</small></span><span class="service-toggle" aria-hidden="true"></span></button>
               <div class="service-panel" id="service-dpf" aria-hidden="true"><p>Analizujemy objawy, kody błędów i dane związane z filtrem cząstek stałych, aby określić przyczynę problemu i możliwy zakres prac.</p></div>
             </article>
             <article class="service-card">
-              <button class="service-trigger" type="button" aria-expanded="false" aria-controls="service-egr"><span class="service-icon"><svg viewBox="0 0 24 24"><path d="M4 17h5l2-5h4l2 5h3M6 17v3M18 17v3M7 9h10M9 5h6"/><circle cx="12" cy="12" r="2"/></svg></span><span class="service-trigger-copy"><strong>EGR OFF</strong><small>Diagnostyka zaworu i układu recyrkulacji.</small></span><span class="service-toggle" aria-hidden="true"></span></button>
+              <button class="service-trigger" type="button" aria-expanded="false" aria-controls="service-egr"><span class="service-icon"><svg viewBox="0 0 24 24"><path d="M4 17h5l2-5h4l2 5h3M6 17v3M18 17v3M7 9h10M9 5h6"/><circle cx="12" cy="12" r="2"/></svg></span><span class="service-trigger-copy"><strong>EGR OFF</strong><small>Modyfikacja polegająca na usunięciu zaworu EGR oraz umożliwieniu silnikowi pracy bez recyrkulacji spalin.</small></span><span class="service-toggle" aria-hidden="true"></span></button>
               <div class="service-panel" id="service-egr" aria-hidden="true"><p>Sprawdzamy pracę układu EGR oraz towarzyszące mu błędy i objawy. Zakres rozwiązania dobieramy do konkretnego auta i jego przeznaczenia.</p></div>
             </article>
             <article class="service-card">
-              <button class="service-trigger" type="button" aria-expanded="false" aria-controls="service-dtc"><span class="service-icon"><svg viewBox="0 0 24 24"><path d="M5 4h14v16H5zM8 8h8M8 12h5M8 16h3"/><path d="m16 15 4 4M20 15l-4 4"/></svg></span><span class="service-trigger-copy"><strong>DTC OFF</strong><small>Analiza kodów błędów i ich przyczyny.</small></span><span class="service-toggle" aria-hidden="true"></span></button>
+              <button class="service-trigger" type="button" aria-expanded="false" aria-controls="service-dtc"><span class="service-icon"><svg viewBox="0 0 24 24"><path d="M5 4h14v16H5zM8 8h8M8 12h5M8 16h3"/><path d="m16 15 4 4M20 15l-4 4"/></svg></span><span class="service-trigger-copy"><strong>DTC OFF</strong><small>Koniec z irytującymi kontrolkami, które świecą bez wyraźnego powodu. Auto działa bez zbędnych ostrzeżeń i komunikatów. </small></span><span class="service-toggle" aria-hidden="true"></span></button>
               <div class="service-panel" id="service-dtc" aria-hidden="true"><p>Odczytujemy i interpretujemy kody DTC, a następnie omawiamy, czy problem wymaga naprawy, dalszego testu lub określonego rozwiązania programowego.</p></div>
             </article>
             <article class="service-card">
@@ -428,14 +419,13 @@
               <div class="service-panel" id="service-diagnostyka" aria-hidden="true"><p>Pomagamy uporządkować objawy, odczytać dane ze sterowników i ustalić kolejny krok. Konkretna wycena jest przygotowywana po rozmowie.</p></div>
             </article>
           </div>
-          <div class="service-note"><strong>Ważne:</strong> zakres każdej usługi jest ustalany indywidualnie po rozmowie i diagnostyce. Modyfikacje systemów pojazdu realizujemy z uwzględnieniem jego przeznaczenia i obowiązujących przepisów.</div>
         </div>
       </section>
 
       <section class="section" id="proces">
         <div class="container split">
-          <div class="dark-panel"><div class="section-kicker">Prosty proces</div><h2 class="section-title">Bez formularzy.<br />Bez krążenia.</h2><p>Masz pytanie albo problem z autem? Zadzwoń. Podczas rozmowy ustalimy, czego potrzebujesz i jaki będzie najlepszy kolejny krok.</p><div class="ticks"><div class="tick"><span class="tick-mark">✓</span><span>Rozmowa telefoniczna i wstępne rozpoznanie</span></div><div class="tick"><span class="tick-mark">✓</span><span>Indywidualna wycena bez cennika „od…”</span></div><div class="tick"><span class="tick-mark">✓</span><span>Kontakt w godzinach 7:00–16:00</span></div></div></div>
-          <div class="steps"><div class="step"><div class="step-no">01 / CALL</div><div><h3>Opisz problem</h3><p>Zadzwoń i powiedz, co dzieje się z samochodem oraz jakie komunikaty pojawiają się na desce.</p></div></div><div class="step"><div class="step-no">02 / CHECK</div><div><h3>Ustalamy zakres</h3><p>Na podstawie rozmowy i diagnostyki określamy możliwe rozwiązanie oraz koszt.</p></div></div><div class="step"><div class="step-no">03 / FIX</div><div><h3>Przechodzimy do działania</h3><p>Po akceptacji ustaleń realizujemy uzgodniony zakres prac.</p></div></div></div>
+          <div class="dark-panel"><div class="section-kicker">Prosty proces</div><h2 class="section-title">Bez formularzy.<br />Bez krążenia.</h2><p>Masz pytanie albo problem z autem? Zadzwoń. Podczas rozmowy ustalimy, czego potrzebujesz i jaki będzie najlepszy kolejny krok.</p><div class="ticks"><div class="tick"><span class="tick-mark">✓</span><span>Rozmowa telefoniczna i wstępne rozpoznanie</span></div><div class="tick"><span class="tick-mark">✓</span><span>Indywidualna wycena</span></div><div class="tick"><span class="tick-mark">✓</span><span>Kontakt od 6:00 do 22:00</span></div><div class="tick"><span class="tick-mark">✓</span><span>Pracujemy od poniedziałku do piątku od 6:00 do 16:00</span></div></div></div>
+          <div class="steps"><div class="step"><div class="step-no">01</div><div><h3>Opisz problem</h3><p>Zadzwoń i powiedz, co dzieje się z samochodem oraz jakie komunikaty pojawiają się na desce.</p></div></div><div class="step"><div class="step-no">02</div><div><h3>Ustalamy zakres</h3><p>Na podstawie rozmowy i diagnostyki określamy możliwe rozwiązanie oraz koszt.</p></div></div><div class="step"><div class="step-no">03</div><div><h3>Przechodzimy do działania</h3><p>Po akceptacji ustaleń realizujemy uzgodniony zakres prac.</p></div></div></div>
         </div>
       </section>
 
@@ -454,7 +444,6 @@
         const track = carousel.querySelector('.hero-track');
         const slides = [...carousel.querySelectorAll('[data-carousel-slide]')];
         const dots = [...carousel.querySelectorAll('[data-carousel-dot]')];
-        const current = carousel.querySelector('[data-carousel-current]');
         const previous = carousel.querySelector('[data-carousel-prev]');
         const next = carousel.querySelector('[data-carousel-next]');
         let index = 0;
@@ -474,7 +463,6 @@
             dot.classList.toggle('is-active', active);
             dot.setAttribute('aria-selected', String(active));
           });
-          current.textContent = String(index + 1).padStart(2, '0');
           if (restart) startAutoPlay();
         };
 
